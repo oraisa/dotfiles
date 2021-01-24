@@ -52,8 +52,14 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+;;
+;; Use hunspell for corrections as english.dat is does not exist for aspell
+(setq ispell-program-name "hunspell")
 
+;; Don't scroll to bottom of the screen
 (setq scroll-margin 10)
+
+;; Highlight column 80
 (global-display-fill-column-indicator-mode t)
 
 ;; Ebib
