@@ -51,3 +51,4 @@
 
 (package! ebib)
 (package! snakemake-mode)
+(package! lsp-julia)
