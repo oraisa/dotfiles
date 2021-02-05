@@ -1,1 +1,1 @@
-MEGAsync/configs/gvimrc
+set guioptions-=T
