@@ -36,6 +36,10 @@
         org-log-done 'time
         deft-directory "~/Documents/org/notes/"
         deft-use-filename-as-title t
+        org-todo-keywords '(
+                            (sequence "TODO(t)" "|" "DONE(d)")
+                            (sequence "NOTREAD(n)" "SKIMMED(s)" "|" "READ(r)")
+                            )
         )
   )
 
@@ -73,3 +77,14 @@
 ;; Ebib
 (setq ebib-file-search-dirs '("~/Documents/Papers"))
 (setq ebib-file-associations '(("pdf" . "zathura")))
+(setq ebib-notes-directory "~/Documents/org/paper-notes/")
+(setq ebib-reading-list-file "~/Documents/org/agenda/reading-list.org")
+(setq ebib-reading-list-todo-marker "NOTREAD")
+(setq ebib-reading-list-done-marker "READ")
+(setq ebib-index-columns '(
+                          ("Entry Key" 10 t)
+                          ("Author/Editor" 40 t)
+                          ("Year" 6 t)
+                          ("Title" 50 t)
+                          ("Note" 3 f)
+                          ))
