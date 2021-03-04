@@ -23,6 +23,7 @@
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
 (setq doom-font (font-spec :family "JetBrains Mono Medium" :size 13))
+
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
@@ -30,12 +31,12 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
+(setq deft-directory "~/Documents/org/notes/")
+(setq deft-use-filename-as-title t)
 (after! org
   (setq org-directory "~/Documents/org/"
         org-agenda-files '("~/Documents/org/agenda/")
         org-log-done 'time
-        deft-directory "~/Documents/org/notes/"
-        deft-use-filename-as-title t
         org-todo-keywords '(
                             (sequence "TODO(t)" "|" "DONE(d)")
                             (sequence "NOTREAD(n)" "SKIMMED(s)" "|" "READ(r)")
@@ -65,8 +66,8 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; Use hunspell for corrections as english.dat is does not exist for aspell
-(after! ispell (setq ispell-program-name "hunspell"))
+;; Set default language
+(setq ispell-dictionary "en")
 
 ;; Don't scroll to bottom of the screen
 (setq scroll-margin 10)
@@ -76,6 +77,8 @@
 
 ;; Ebib
 (setq ebib-file-search-dirs '("~/Documents/Papers"))
+(setq ebib-bib-search-dirs '("~/Documents/Papers"))
+(setq ebib-preload-bib-files '("paper-database.bib"))
 (setq ebib-file-associations '(("pdf" . "zathura")))
 (setq ebib-notes-directory "~/Documents/org/paper-notes/")
 (setq ebib-reading-list-file "~/Documents/org/agenda/reading-list.org")
@@ -88,3 +91,20 @@
                           ("Title" 50 t)
                           ("Note" 3 f)
                           ))
+(map! :leader :desc "Open Ebib" "n e" #'ebib)
+(map! :map ebib-index-mode-map "h" #'ebib-prev-database)
+(map! :map ebib-index-mode-map "l" #'ebib-next-database)
+(map! :map ebib-index-mode-map "J" #'ebib-jump-to-entry)
+(map! :map ebib-index-mode-map "s" #'ebib-save-current-database)
+(map! :localleader :map ebib-index-mode-map "h" #'ebib-index-help)
+(map! :localleader :map ebib-index-mode-map "f" #'ebib-import-file)
+(map! :localleader :map ebib-index-mode-map "u" #'ebib-download-url)
+(map! :localleader :map ebib-index-mode-map "i" #'ebib-import)
+(map! :localleader :map ebib-index-mode-map "s" #'ebib-save-current-database)
+(map! :localleader :map ebib-index-mode-map "S" #'ebib-save-all-databases)
+(map! :map ebib-entry-mode-map "h" nil)
+(map! :localleader :map ebib-entry-mode-map "s" #'ebib-save-current-database)
+(map! :localleader :map ebib-entry-mode-map "S" #'ebib-save-add-databases)
+(map! :map ebib-multiline-mode-map "C-C C-q" #'ebib-quit-multiline-buffer-and-save)
+(map! :map ebib-multiline-mode-map "C-C C-c" #'ebib-cancel-multiline-buffer)
+(map! :map ebib-multiline-mode-map "C-C C-s" #'ebib-save-from-multiline-buffer)
