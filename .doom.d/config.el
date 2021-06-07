@@ -39,7 +39,7 @@
         org-log-done 'time
         org-todo-keywords '(
                             (sequence "TODO(t)" "|" "DONE(d)")
-                            (sequence "NOTREAD(n)" "SKIMMED(s)" "|" "READ(r)")
+                            (sequence "NOTREAD(n)" "THROUGHREAD(T)" "|" "READ(r)")
                             )
         )
   )
