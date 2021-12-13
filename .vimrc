@@ -17,7 +17,7 @@ let maplocalleader = "-"
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
-Plug 'lervag/vimtex'
+"Plug 'lervag/vimtex'
 Plug 'Raimondi/delimitMate'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
@@ -32,14 +32,14 @@ Plug 'glts/vim-radical'
 Plug 'sheerun/vim-polyglot'
 Plug 'sickill/vim-pasta'
 Plug 'tpope/vim-fugitive'
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'mbbill/undotree'
-Plug 'Shougo/deoplete.nvim'
+"Plug 'preservim/nerdtree'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'mbbill/undotree'
+"Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'deoplete-plugins/deoplete-jedi'
-Plug 'sebastianmarkow/deoplete-rust'
+"Plug 'deoplete-plugins/deoplete-jedi'
+"Plug 'sebastianmarkow/deoplete-rust'
 
 call plug#end()
 
@@ -54,7 +54,7 @@ let g:airline#extensions#tabline#buffer_idx_mode = 0
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " NERD tree
-let g:NERDTreeShowIgnoredStatus = 1
+let g:NERDTreeGitStatusShowIgnored = 1
 noremap <leader>nt :NERDTreeToggle<CR>
 noremap <leader>ut :UndotreeToggle<CR>
 
@@ -62,14 +62,14 @@ noremap <leader>ut :UndotreeToggle<CR>
 let g:mkdp_auto_close = 0
 
 " vim-polyglot
-let g:polyglot_disabled = ['latex']
+"let g:polyglot_disabled = ['latex']
 
 " deoplete
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
 
 " deoplete-rust
-let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='/home/ossi/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src/'
+"let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
+"let g:deoplete#sources#rust#rust_source_path='/home/ossi/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src/'
 
 autocmd FileType markdown nmap <buffer> <localleader>mv <Plug>MarkdownPreview
 
